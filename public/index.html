@@ -16,17 +16,35 @@
       </div>
       <div class="form-field">
         <label>Display name</label>
-        <input type="text" name="name" autofocus/>
+        <input type="text" name="name" autofocus autocomplete="off"/>
       </div>
-      <div class="form-field">
+      <div class="form-field" id="select-field">
+          <label>Active rooms</label>
+          <select name="select-room" id="select">
+            <option>Choose a room</option>
+            <option>Make a new room</option>
+          </select>
+      </div>
+      <div class="form-field" id="input-field">
         <label>Room name</label>
-        <input type="text" name="room"/>
+        <input type="text" name="room" id="input"/>
       </div>
       <div class="form-field">
         <button>Join</button>
       </div>
     </form>
   </div>
+
+  <script id="option-template" type="text/template">
+    <option>{{room}}</option>
+  </script>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/libs/jquery-3.1.1.min.js"></script>
+  <script src="/js/libs/moment.js"></script>
+  <script src="/js/libs/mustache.js"></script>
+  <script src="/js/libs/deparam.js"></script>
+  <script src="/js/index.js"></script>
 </body>
 
 </html>

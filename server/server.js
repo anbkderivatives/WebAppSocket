@@ -27,7 +27,7 @@ app.use(express.static(publicPath));
  //socket.broadcast.to().emit() -> send emitted requests to each or everybody who is connected to a specific join object (room) except the current user connected
 
 io.on('connection', (socket)=>{
-  console.log('new user connection');
+  console.log('New user connection');
 
   socket.on('join',(params,callback)=>{ //callbck like as -> acknowledgement 
     //console.log(params.name+' '+params.room)
@@ -53,6 +53,7 @@ io.on('connection', (socket)=>{
     users.addUsers(socket.id,params.name,params.room);
 
     io.to(params.room).emit('updateUserList', users.getUsersList(params.room));
+    io.to('index').emit('updateRoomList', users.getRoomList())
 
     socket.emit('newMessage', {
       from: 'Admin',
@@ -66,7 +67,10 @@ io.on('connection', (socket)=>{
     });
   });
 
-
+socket.on('joinIndex', () => {
+    socket.join('index');
+    socket.emit('updateRoomList', users.getRoomList());
+});
 /*  
   socket.emit('newMessage', {
       from: 'Admin',

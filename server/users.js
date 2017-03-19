@@ -42,6 +42,19 @@ class Users{
 
         return namesArrays;
     }
+    getRoomList () {
+        var roomsMap = this.users.map((user) => user.room);
+        var uniqueRooms = roomsMap.filter( onlyUnique );
+        return uniqueRooms;
+        //  or
+        // var uniqueRooms = new Set(roomsMap);
+        // return [...uniqueRooms];
+        
+  }
+}
+
+function onlyUnique(value, index, self) { 
+    return self.indexOf(value) === index;
 }
 
 module.exports = {Users};

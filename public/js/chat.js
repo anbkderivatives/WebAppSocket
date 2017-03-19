@@ -29,7 +29,6 @@ socket.on('connect',function(){
             window.location.href = "/" ;
         }
         //no errors
-        //else{} 
     });
 });
 
@@ -84,7 +83,7 @@ socket.on('newLocationMessage',function(message){
 
     jQuery('#listMessages').append(html);
 
-    /*
+   /*
     //Different solution, provision of css styles become more complex
     var li = $('<li></li>');
     var a = $('<a target="_blank">My current location</a>');
@@ -94,7 +93,7 @@ socket.on('newLocationMessage',function(message){
 
     li.append(a);
     $('#listMessages').append(li);
-    */
+   */
     scrollToBottom();
 });
 
