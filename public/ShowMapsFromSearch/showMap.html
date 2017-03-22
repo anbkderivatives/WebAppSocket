@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Google Embed Maps Search</title>
+   <link type="text/css" rel="stylesheet" href="showMap.css"/>   
+</head>
+<body>
+   <div class="page-box page-top">
+        Google Maps Search
+        <input type="text" id="searchPlace" placeholder="enter a name place, city, state, country.."/>
+        <img src="imgs/proccedImg.gif" id="proccedMap"/>
+   </div>
+   <div id="iframeContainer" class="page-box page-middle">
+   </div>
+
+   <script type="text/javascript" src="/js/libs/jquery-3.1.1.min.js"></script>
+   
+   <script type="text/javascript">
+      var ApiKey = "AIzaSyAQS3OM6sc6M8vQviAUA1IvfjkttD5wXjM";
+
+      $(document).ready(function(){
+        
+        //by default map load
+        var src = "https://www.google.com/maps/embed/v1/place?key="+ApiKey+"&q=Hamburg,Ger";
+        var iframeStr = "<iframe width='600' height='450' frameborder='0' style='border:0' src='"+src+"' allowfullscreen> </iframe>";
+        $('#iframeContainer').html(iframeStr);
+
+        $('#proccedMap').click(function(){
+            //console.log(this);
+            // remove spaces from begin and end of a string with str.trim()
+            // store seperated string to an array with str.split('character')
+            // take an array and unite all its elements to a string segregated with a character in between array.join('character')
+            var queryStr =  $('#searchPlace').val();
+            queryStr = queryStr.trim().split(' ').join('+');
+
+            var src = "https://www.google.com/maps/embed/v1/place?key="+ApiKey+"&q="+queryStr;
+            var iframeStr = "<iframe width='600' height='450' frameborder='0' style='border:0' src='"+src+"' allowfullscreen> </iframe>";
+            //console.log(iframeStr);
+
+            $('#iframeContainer').html(iframeStr);
+        });
+      });
+   </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+body{
+    background: url(imgs/light_background-wallpaper-1920x1080.jpg);
+}
+iframe {
+   width: 800px;
+   height: 480px;
+   margin: auto;
+   border-width: 0px;
+   border-radius: 8px;
+}
+
+.page-box {
+   width: 800px;
+   margin: auto;
+   margin-top:16px;
+   border:2px solid #34495e;
+   border-radius: 8px;
+}
+
+.page-top {
+   /*display: flex;*/
+   height: 40px;
+   line-height: 40px;
+   font-size: 24px;
+   text-indent: 16px;
+   background: linear-gradient(45deg, white, gray);
+}
+
+.page-top > input[type=text] {
+   width: 340px;
+   height: 24px;
+   font-size: 16px;
+   /*float: initial;*/
+   margin-left: 122px;
+   margin-top:5px; 
+}
+
+img:hover{
+    cursor:pointer;
+}
+
+.page-top.page-box > img {
+   
+   width: 40px;
+   height: 30px;
+   float: right;
+   margin-top: 7px;
+   margin-right: 16px;
+}
+
+.page-middle {
+   height: 480px;
+}

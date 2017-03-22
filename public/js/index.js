@@ -1,10 +1,11 @@
 let socket = io()
 
-jQuery(document).ready(selectRoom);
+jQuery(document).ready(function(){
+	selectRoom();
+	jQuery('#select').change(selectRoom);
+});
 
-jQuery('#select').change(selectRoom);
-
-   
+  
 socket.on('connect', () => {
     //console.log('Connected to server')
     socket.emit('joinIndex')

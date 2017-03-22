@@ -123,7 +123,26 @@ button:disabled {
 .chat__messages {
   flex-grow: 1;
   overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch; /*safari 5, chrome*/
+}
+
+.chat__header{
+  border-style: outset;
+  background: linear-gradient(1deg, white, gray);
+  /*display: flex;*/
+  padding: 6px;
+  /*height: 60px;*/
+  /*flex-shrink: 0;*/
+}
+.chat__header .header__playAround{
+  display: inline;
+  margin-left: 10px;
+}
+
+.chat__header .header__playAround a{
+  text-decoration: none;
+  text-shadow:2px 2px 24px black;
+  color : darkslategray;
 }
 
 .chat__footer {
